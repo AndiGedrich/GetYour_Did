@@ -1,11 +1,12 @@
-class CreateUsers < ActiveRecord::Migration
+class CreateTechnicians < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table :technicians do |t|
       t.string :name
+      t.text :body
+      t.string :profile_pic_url
       t.string :email
       t.string :password_digest
-      t.string :profile_img_url
-      t.string :city
+      t.integer :salon_id
 
       t.index(:email, unique: true)
 

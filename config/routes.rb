@@ -1,19 +1,76 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  root 'welcome#index'
+
+  get 'salons/show'
+
+  get 'salons/edit'
+
+  get 'appointments/new'
+
+  get 'appointments/show'
+
+  get 'appointments/edit'
+
+  get 'appointments/delete'
+
+  get 'reviews/new'
+
+  get 'reviews/edit'
+
+  get 'reviews/delete'
+
+  get 'appointments/new'
+
+  get 'appointments/show'
+
+  get 'appointments/edit'
+
+  get 'appointments/delete'
+
+  get 'categories/show'
+
+  get 'categories/new'
+
+  get 'services/new'
+
+  get 'services/delete'
+
+  get 'salons/show'
+
+  get 'salons/edit'
+
+  get 'technicians/index'
+
+  get 'technicians/show'
+
+  get 'technicians/new' => 'technicians#new', as: :new_technician
+  post '/' => 'technicians#create'
+
+  get 'technicians/edit'
+
+  get 'technicians/delete'
+
+  get 'users/index', as: :users
 
   get 'users/show'
 
-  get 'users/new'
+  get 'users/new' => 'users#new', as: :new_user
+  post '/' => 'users#create'
 
   get 'users/edit'
 
   get 'users/delete'
 
+  get 'sessions/new' => 'sessions#new', as: :new_session
+  post 'sessions/new' => 'sessions#create', as: :create_session
+  get 'sessions/destroy' => 'sessions#destroy', as: :destroy_session
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

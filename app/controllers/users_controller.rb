@@ -6,6 +6,17 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
+  end
+
+  def create
+    if User.new(user_params).save
+      flash[:success] = 'Thank you for Registering!'
+      redirect_to user_path
+    else
+      flash[:error] = 'Registration has Failed'
+      redirect_to new_user_path
+    end
   end
 
   def edit
@@ -13,4 +24,9 @@ class UsersController < ApplicationController
 
   def delete
   end
+
+  private
+    def user_params
+      params.require(:user).permit(:email, :password, :password_confirmation)
+    end
 end
