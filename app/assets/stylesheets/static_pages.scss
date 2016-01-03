@@ -1,3 +1,49 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  background-image: url("salonchairs.jpg");
+  background-color: #d3d8c2;
+  background-repeat: no-repeat;
+  background-position: 0% -30%;
+  background-size: cover;
+}
+
+ul {
+    list-style-type: none;
+    background-color: black;
+    position: 100%;
+}
+
+li {
+    display: inline-block;
+    font-family: 'Poiret One', cursive;
+    color: #ff33cc;
+    padding: 10px;
+    font-size: large;
+}
+
+a:link {
+    text-decoration: none;
+    color: #ff33cc;
+}
+
+a:visited {
+    color: #ff33cc;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+.appName {
+  font-family: 'Russo One', sans-serif;
+  font-size: x-large;
+  text-align: center;
+  margin-top: 3px;
+}
+
+.navigationSearch {
+  float: right;
+}

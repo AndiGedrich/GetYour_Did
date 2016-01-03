@@ -1,0 +1,17 @@
+
+<div class="headerBody">
+  <div class="appName" id="title">If You're a Fly Girl, Get Your <%= collection_select( :post, :category_ids, Category.all, :id, :category_type, {}, { :multiple => true}) %> Did!</div>
+    <div class="navigationAppt">
+      <div class="headerRow1"><%= collection_check_boxes( :post, :service_ids, Service.all, :id, :name, {}, { :multiple => true}) %></div>
+    </div>
+
+    <div class="navigationSearch">
+      <%= form_tag("/search", method: "get") do %>
+
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+      <% end %>
+    </div>
+  </div>
+
+
