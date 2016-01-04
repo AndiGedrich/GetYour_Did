@@ -2,11 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html,
+body {
+  margin:0;
+  padding: 0;
+  height: 100%;
+}
+
+#container {
+  min-height: 100%;
+  position: relative;
+
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: black;
+}
+
 html {
+  background-color: #dee1cc;
+}
+
+#body {
   background-image: url("salonchairs.jpg");
-  background-color: #d3d8c2;
+  width: 100%;
+  height: 400px;
   background-repeat: no-repeat;
-  background-position: 0% -30%;
   background-size: cover;
 }
 
@@ -16,7 +41,7 @@ ul {
     position: 100%;
 }
 
-li {
+.navList {
     display: inline-block;
     font-family: 'Poiret One', cursive;
     color: #ff33cc;
@@ -46,4 +71,21 @@ a:hover {
 
 .navigationSearch {
   float: right;
+}
+
+h1 {
+  font-family: 'Russo One', sans-serif;
+}
+
+p {
+  font-family: 'Poiret One', cursive;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.footerMenu {
+  float: left;
+  display: block;
+  font-family: 'Poiret One', cursive;
+  background-color: black;
 }

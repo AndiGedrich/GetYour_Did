@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="pg-heading">Available Appointments</div>
+
+  <div class="container">
+    <div class="row row-Date">
+      <div class="col-md-2">Time</div>
+      <div class="col-md-2">Stylist/Tech</div>
+      <div class="col-md-2">Salon</div>
+      <div class="col-md-2">Price Range</div>
+    </div>
+    <% @appointments.each do |appointment| %>
+    <div class="row">
+      <div class="col-md-2">
+        <button>
+          <%= link_to "*", appointment_path(appointment) %>
+        </button>
+        <%= appointment.time %>
+      </div>
+      <div class="col-md-2"><%= appointment.techician_id.name %></div>
+      <div class="col-md-2 centered"><%= appointment.salon_id.name %></div>
+      <div class="col-md-4"><%= salon.price_range %></div>
+    </div>
+    <% end %>
+  </div>
+</div>
