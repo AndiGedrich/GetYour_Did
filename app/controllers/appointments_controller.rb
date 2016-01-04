@@ -1,4 +1,9 @@
 class AppointmentsController < ApplicationController
+
+  def index
+    @appointments = Appointment.all
+  end
+
   def new
     @appointment = Appointment.new
   end
@@ -28,4 +33,5 @@ class AppointmentsController < ApplicationController
 
     def appointment_params
     params.require(:appointment).permit(:date, :time, :technician_id, :service_id)
+    end
 end

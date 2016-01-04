@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def new
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
   def create
     if User.new(user_params).save
       flash[:success] = 'Thank you for Registering!'
-      redirect_to user_path
+      redirect_to users_show_path
     else
       flash[:error] = 'Registration has Failed'
       redirect_to new_user_path

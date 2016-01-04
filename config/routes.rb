@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'salons/edit'
 
+  get 'appointments/index'
+
   get 'appointments/new'
 
   get 'appointments/show'
@@ -57,6 +59,7 @@ Rails.application.routes.draw do
   get 'technicians/delete'
 
   get 'users/index', as: :users
+
 
   get 'users/show'
 
