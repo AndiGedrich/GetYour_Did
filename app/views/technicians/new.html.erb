@@ -1,2 +1,22 @@
-<h1>Technicians#new</h1>
-<p>Find me in app/views/technicians/new.html.erb</p>
+<p>Work here? Sign-up today to start booking appointments!</p>
+
+<%= form_for(@technician) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <% flash.each do |key, value| %>
+    <div class="<%= key %>" > <%= value %></div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+
+  <%= f.label :password_confirmation, "Confirmation" %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+  <%= f.submit "Sign-up" %>
+  <% end %>

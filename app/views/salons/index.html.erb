@@ -1,0 +1,38 @@
+<div id="navigation">
+  <%= render "static_pages/header" %>
+</div>
+
+<div class="wrapper">
+  <div class="pg-heading">Salons</div>
+  <div class="search">
+    <br>
+    <%= form_tag('/salons/index', method:"get") do %>
+    Search by
+    <%= select_tag "search", options_for_select(["name", "zip_code"]) %>
+    <%= text_field_tag :query %>
+    <%= submit_tag "Search", "class" => "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="container">
+    <div class="row row-title">
+      <div class="col-md-2">Name</div>
+    </div>
+    <% @salons.each do |salon| %>
+    <div class="row">
+      <div class="col-md-2">
+        <button>
+          <%= link_to "*", salon_path(salon) %>
+        </button>
+        <%= salon.name %>
+      </div>
+      <div class="col-md-2"><%= salon.address %></div>
+      <div class="col-md-2 centered"><%= salon.zip_code %></div>
+      <div class="col-md-4"><%= salon.phone_number %></div>
+      <div class="col-md-2 centered">salon.price_range</div>
+    </div>
+    <% end %>
+    <% if @paginate %>
+    <%= paginate @salons %>
+    <% end %>
+  </div>
+</div>

@@ -1,8 +1,30 @@
-<h1>Salons#show</h1>
-  <div id="navigation">
+ <div id="navigation">
     <%= render "static_pages/header" %>
+  </div>
+  <div class="salonInfo">
+    <div class="salonName"><%= @salon.name %></div>
+    <div class="salonInfo"><%= @salon.phone_number %></div>
+    <div class="salonInfo"><%= @salon.zip_code %></div>
+    <div class="salonPrice"><%= @salon.price_range %></div>
+  </div>
+
+  <div class="technicianListing">
+    <p>put a partial to display associated technicians (photo + services listing) + link to tech show page</p>
+
+  <div class="appointmentsListing">
+    <p>put a partial to display associated technician's appointments (date, time, tech) + link to booking</p>
+  </div>
+
+  <div class="gallery">
+    <p>display associated technician's pinterest boards</p>
+  </div>
+
+  <div id="techSignup">
+    <%= link_to "Work Here? Start booking appointments today!", new_technician_path %>
   </div>
 
   <div id="footer">
     <%= render "static_pages/footer" %>
   </div>
+
+<!-- need to be able to link technician info here - reviews, pinterest boards

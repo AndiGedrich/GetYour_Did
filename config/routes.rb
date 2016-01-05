@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   get 'static_pages/about'
 
-  get 'salons/show'
+  get 'salons/index' => 'salons#index', as: :salons_index
+
+  get 'salons/:id' => 'salons#show', as: :salon
 
   get 'salons/edit'
 
