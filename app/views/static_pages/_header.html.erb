@@ -17,10 +17,14 @@
 
           <!--render form -->
           <div class="modal-body">
-            <div class="form-group">
-              <%= render "users/index" %>
+            <div class="form-group" id="modalBodyContentLogIn">
+              <%= render "sessions/new" %>
+            </div>
+            <div class="form-group" id="modalBodyContentRegister" style="">
+              <%= render "users/loginregistration" %>
             </div>
           </div>
+
       </div>
     </div>
   </ul>

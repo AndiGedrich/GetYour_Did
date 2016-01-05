@@ -1,8 +1,8 @@
-
 <p>Not a member yet? Create an account to start using Get Your Did today!</p>
 
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages' %>
+
   <% flash.each do |key, value| %>
     <div class="<%= key %>" > <%= value %></div>
   <% end %>
@@ -21,5 +21,3 @@
 
   <%= f.submit "Sign-up" %>
   <% end %>
-
-

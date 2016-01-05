@@ -1,5 +1,7 @@
 class AppointmentsController < ApplicationController
 
+  # before_each: @user = User.new
+
   def index
     @appointments = Appointment.all
   end

@@ -14,7 +14,7 @@ class SessionController < ApplicationController
     else
       flash[:error] = 'unable to sign you in'
 
-      redirect_to new_session_path
+      redirect_to new_users_path
     end
   end
 

@@ -12,6 +12,7 @@ body {
 #container {
   min-height: 100%;
   position: relative;
+  background-color: #dee1cc;
 
 }
 
@@ -23,15 +24,12 @@ body {
   background-color: black;
 }
 
-html {
-  background-color: #dee1cc;
-}
 
 #body {
   background-image: url("salonchairs.jpg");
   width: 100%;
-  height: 400px;
   background-repeat: no-repeat;
+  min-height: 400px;
   background-size: cover;
 }
 
@@ -46,7 +44,7 @@ ul {
     font-family: 'Poiret One', cursive;
     color: #ff33cc;
     padding: 10px;
-    font-size: large;
+    font-size: small;
 }
 
 a:link {
@@ -64,7 +62,7 @@ a:hover {
 
 .appName {
   font-family: 'Russo One', sans-serif;
-  font-size: x-large;
+  font-size: large;
   text-align: center;
   margin-top: 3px;
 }
@@ -82,6 +80,7 @@ p {
   font-size: 15px;
   font-weight: bold;
 }
+
 
 .footerMenu {
   float: left;
