@@ -75,6 +75,8 @@ Rails.application.routes.draw do
   post 'sessions/new' => 'sessions#create', as: :create_session
   get 'sessions/destroy' => 'sessions#destroy', as: :destroy_session
 
-
+  namespace :api do
+    resources :salons, :defaults => { :format => 'json' }, only: [:index, :show]
+  end
 
 end

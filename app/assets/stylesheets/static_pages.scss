@@ -16,9 +16,6 @@ body {
 
 }
 
-.headerLogo {
-  text-align: center;
-}
 
 #footer {
   position: absolute;
@@ -39,7 +36,7 @@ body {
 
 ul {
     list-style-type: none;
-    background-color: black;
+    background-color: #F8F8F8;
     position: 100%;
 }
 
@@ -86,9 +83,15 @@ p {
 }
 
 
-.footerMenu {
+.footerLinks {
   float: left;
   display: block;
   font-family: 'Poiret One', cursive;
   background-color: black;
+}
+
+.socLogo {
+  float: right;
+  display: inline;
+  padding: 5px;
 }
