@@ -1,2 +1,25 @@
 <h1>Services#new</h1>
 <p>Find me in app/views/services/new.html.erb</p>
+
+<div class="container">
+<%= form_for @service, url: {action: "create"} do |f| %>
+  <%#= render 'shared/error_messages' %>
+  <% flash.each do |key, value| %>
+    <div class="createService"<%= key %>" > <%= value %></div>
+  <% end %>
+
+  <%= f.label :Service_Name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :Appointment_Length %>
+  <%= f.number_field :lenth_mins %>
+
+
+  <%= f.label :Type %>
+  <%= f.select :category_id, collection_check_boxes(:post, :category_id, Category.all, :id, :name, {}, { :multiple => false}) %>
+
+  <%= f.submit "Create New Service" %>
+  <br>
+  <%= link_to "Cancel", root_path %>
+  <% end %>
+</div>

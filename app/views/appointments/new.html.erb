@@ -1,2 +1,27 @@
 <h1>Appointments#new</h1>
 <p>Find me in app/views/appointments/new.html.erb</p>
+
+<div class="container">
+<%= form_for @appointment, url: {action: "create"} do |f| %>
+  <%#= render 'shared/error_messages' %>
+  <% flash.each do |key, value| %>
+    <div class="createAppointment"<%= key %>" > <%= value %></div>
+  <% end %>
+
+  <%#= f.hidden_field :followed_id %>
+
+  <%= f.label :Date %>
+  <%= f.date_select :date %>
+
+
+  <%= f.label :Time %>
+  <%= f.time_select :time %>
+
+  <%= f.label :service %>
+  <%= f.select :service_id, collection_check_boxes(:post, :service_ids, Service.all, :id, :name, {}, { :multiple => true}) %>
+
+  <%= f.submit "Create Appointment" %>
+  <br>
+  <%= link_to "Cancel", root_path %>
+  <% end %>
+</div>

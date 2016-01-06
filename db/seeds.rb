@@ -22,11 +22,7 @@ categories = Category.create([
 ])
 
 
-technicians = Technician.create([
-  {name: "Erica Holms", body: "Hi - my passion is for color, I love achieving all colors of the rainbow!  If you want to look like a My Little Pony, I am the colorist for you.  I also specialize in short and shoulder length cuts.", email: "erica_does_hair@gmail.com", password_digest: "12345", salon_id: 3},
-  {name: "Britney Mendoza", body: "Hi - I specialize in special occasion hair and make-up and I love vintage styles such as pin-up, mod and 40s.", email: "britney_does_hair@gmail.com", password_digest: "6789", salon_id: 4},
-  {name: "Charles", body: "Eyebrows and eyelashes are my speciality!  I also love modern make-up for weddings and special occasions.", email: "charles_looks_good@gmail.com", password_digest: "lashes", salon_id: 6},
-])
+
 
 
 

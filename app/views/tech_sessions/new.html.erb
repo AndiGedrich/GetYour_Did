@@ -1,0 +1,19 @@
+<% @technician = Technician.new %>
+<div class="container">
+<h1>Log In</h1>
+<%= form_for(:tech_session, url: create_tech_session_path) do |f| %>
+
+  <% flash.each do |key,value| %>
+    <div class="<%= key %>" > <%= value %></div>
+  <% end %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+
+  <%= f.submit "Login" %>
+<% end %>
+
+<%= link_to "Not registered yet? Sign-up now to start getting clients!", new_technician_path %>

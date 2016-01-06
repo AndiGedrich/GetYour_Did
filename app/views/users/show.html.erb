@@ -2,8 +2,6 @@
   <%= render "static_pages/header" %>
 </div>
 
-<%= @user.name %>, <%= @user.email %>
-
 <% provide(:title, @user.name) %>
 <h1>
   <%= gravatar_for @user %>

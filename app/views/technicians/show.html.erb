@@ -1,2 +1,17 @@
 <h1>Technicians#show</h1>
 <p>Find me in app/views/technicians/show.html.erb</p>
+
+<div class="container">
+  <div>
+    <%= link_to "Create New Appointment", new_appointment_path %>
+  </div>
+
+  <div id="appointmentList">
+    <%#= render "appointments/appointmentList" %>
+  </div>
+
+  <div>
+  <% if logged_in?  %>
+    <%= link_to "Logout", destroy_tech_session_path %>
+  <% end %>
+  </div>

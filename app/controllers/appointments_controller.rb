@@ -1,9 +1,8 @@
 class AppointmentsController < ApplicationController
 
-  # before_each: @user = User.new
-
   def index
     @appointments = Appointment.all
+    @date = params[:month] ? Date.parse(params[:month]) : Date.today
   end
 
   def new
@@ -34,6 +33,6 @@ class AppointmentsController < ApplicationController
   end
 
     def appointment_params
-    params.require(:appointment).permit(:date, :time, :technician_id, :service_id)
+    params.require(:appointment).permit(:technician_id, :service_id, :date, :time)
     end
 end

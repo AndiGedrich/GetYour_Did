@@ -14,21 +14,8 @@ Rails.application.routes.draw do
 
   get 'appointments/index'
 
-  get 'appointments/new'
-
-  get 'appointments/show'
-
-  get 'appointments/edit'
-
-  get 'appointments/delete'
-
-  get 'reviews/new'
-
-  get 'reviews/edit'
-
-  get 'reviews/delete'
-
-  get 'appointments/new'
+  get 'appointments/new'=> 'appointments#new', as: :new_appointment
+  post 'appointments/' => 'appointments#create'
 
   get 'appointments/show'
 
@@ -40,7 +27,8 @@ Rails.application.routes.draw do
 
   get 'categories/new'
 
-  get 'services/new'
+  get 'services/new' => 'services#new', as: :new_service
+  post 'services/' => 'services#create'
 
   get 'services/delete'
 
@@ -48,16 +36,20 @@ Rails.application.routes.draw do
 
   get 'salons/edit'
 
+  get 'technicians/new' => 'technicians#new', as: :new_technician
+  post 'technicians/' => 'technicians#create'
+
   get 'technicians/index'
 
-  get 'technicians/show'
-
-  get 'technicians/new' => 'technicians#new', as: :new_technician
-  post '/' => 'technicians#create'
+  get 'technicians/:id' => 'technicians#show', as: :technician
 
   get 'technicians/edit'
 
   get 'technicians/delete'
+
+  get 'tech_sessions/new' => 'tech_sessions#new', as: :new_tech_session
+  post 'tech_sessions/new' => 'tech_sessions#create', as: :create_tech_session
+  get 'tech_sessions/destroy' => 'tech_sessions#destroy', as: :destroy_tech_session
 
   get 'users/new' => 'users#new', as: :new_user
   post 'users/' => 'users#create'
@@ -74,6 +66,12 @@ Rails.application.routes.draw do
   get 'sessions/new' => 'sessions#new', as: :new_session
   post 'sessions/new' => 'sessions#create', as: :create_session
   get 'sessions/destroy' => 'sessions#destroy', as: :destroy_session
+
+  get 'reviews/new'
+
+  get 'reviews/edit'
+
+  get 'reviews/delete'
 
   namespace :api do
     resources :salons, :defaults => { :format => 'json' }, only: [:index, :show]

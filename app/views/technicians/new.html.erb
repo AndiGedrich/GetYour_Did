@@ -1,9 +1,9 @@
-<p>Work here? Sign-up today to start booking appointments!</p>
-
+<p>Sign-up today to start booking appointments!</p>
+<div class="container">
 <%= form_for(@technician) do |f| %>
-  <%= render 'shared/error_messages' %>
+  <%#= render 'shared/error_messages' %>
   <% flash.each do |key, value| %>
-    <div class="<%= key %>" > <%= value %></div>
+    <div class="techsignup"<%= key %>" > <%= value %></div>
   <% end %>
 
   <%= f.label :name %>
@@ -19,4 +19,7 @@
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
   <%= f.submit "Sign-up" %>
+  <br>
+  <%= link_to "Cancel", root_path %>
   <% end %>
+</div>
