@@ -8,7 +8,6 @@
     <div class="createAppointment"<%= key %>" > <%= value %></div>
   <% end %>
 
-  <%#= f.hidden_field :followed_id %>
 
   <%= f.label :Date %>
   <%= f.date_select :date %>
@@ -18,10 +17,16 @@
   <%= f.time_select :time %>
 
   <%= f.label :service %>
-  <%= f.select :service_id, collection_check_boxes(:post, :service_ids, Service.all, :id, :name, {}, { :multiple => true}) %>
+  <%= f.select :service_id, collection_select(:post, :service_ids, Service.all, :id, :name, {}, { :multiple => true}) %>
+
+  <% f.hidden_field :technician_id, :value => params[:technician_id] %>
+
+  <div>
+    <%= link_to "Service Not Listed? Add a new service!", new_service_path %>
+  </div>
 
   <%= f.submit "Create Appointment" %>
   <br>
-  <%= link_to "Cancel", root_path %>
+  <%= link_to "Cancel", technicians_path %>
   <% end %>
 </div>

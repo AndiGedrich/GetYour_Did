@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'appointments/new'=> 'appointments#new', as: :new_appointment
   post 'appointments/' => 'appointments#create'
 
-  get 'appointments/show'
+  get 'appointments/:id' => 'appointments#show', as: :appointment
 
   get 'appointments/edit'
 
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   get 'salons/edit'
 
-  get 'technicians/new' => 'technicians#new', as: :new_technician
+  get 'technicians/new/:id' => 'technicians#new', as: :new_technician
   post 'technicians/' => 'technicians#create'
 
   get 'technicians/index'
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 
   get 'technicians/delete'
 
-  get 'tech_sessions/new' => 'tech_sessions#new', as: :new_tech_session
+  get 'tech_sessions/new/:id' => 'tech_sessions#new', as: :new_tech_session
   post 'tech_sessions/new' => 'tech_sessions#create', as: :create_tech_session
   get 'tech_sessions/destroy' => 'tech_sessions#destroy', as: :destroy_tech_session
 

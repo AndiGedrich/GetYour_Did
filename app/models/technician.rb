@@ -4,7 +4,7 @@ class Technician < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: { case_sensitive: false}
 
-  has_one :salon
+  belongs_to :salon
   has_many :appointments
   has_many :reviews
   has_many :services

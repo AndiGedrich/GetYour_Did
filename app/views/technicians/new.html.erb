@@ -18,6 +18,8 @@
   <%= f.label :password_confirmation, "Confirmation" %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+  <% f.hidden_field :salon_id, :value => params[:salon_id] %>
+
   <%= f.submit "Sign-up" %>
   <br>
   <%= link_to "Cancel", root_path %>

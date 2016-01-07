@@ -1,9 +1,11 @@
 class TechSessionsController < ApplicationController
   def new
+    @salon_id = params[:id]
+
   end
 
-    def create
-      technician = Technician.find_by( email: params[:tech_session][:email].downcase)
+  def create
+    technician = Technician.find_by( email: params[:tech_session][:email].downcase)
 
     if technician && technician.authenticate(params[:tech_session][:password])
       log_in technician

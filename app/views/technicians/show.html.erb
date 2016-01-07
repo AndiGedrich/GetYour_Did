@@ -3,7 +3,7 @@
 
 <div class="container">
   <div>
-    <%= link_to "Create New Appointment", new_appointment_path %>
+    <%= link_to "Create New Appointment", new_appointment_path(@technician.id) %>
   </div>
 
   <div id="appointmentList">
@@ -11,7 +11,7 @@
   </div>
 
   <div>
-  <% if logged_in?  %>
+  <% if technician_logged_in?  %>
     <%= link_to "Logout", destroy_tech_session_path %>
   <% end %>
   </div>

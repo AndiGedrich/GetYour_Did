@@ -7,6 +7,7 @@ class TechniciansController < ApplicationController
   end
 
   def new
+    @salon_id = params[:id]
     @technician = Technician.new
   end
 
@@ -29,6 +30,6 @@ class TechniciansController < ApplicationController
 
   private
     def technician_params
-      params.require(:technician).permit(:name, :email, :password)
+      params.require(:technician).permit(:name, :email, :password, :salon_id)
     end
 end

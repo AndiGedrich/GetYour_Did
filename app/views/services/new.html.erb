@@ -11,15 +11,15 @@
   <%= f.label :Service_Name %>
   <%= f.text_field :name %>
 
-  <%= f.label :Appointment_Length %>
-  <%= f.number_field :lenth_mins %>
+  <%= f.label :Appointment_Length_Minutes %>
+  <%= f.number_field :length_mins, :step => 30 %>
 
 
   <%= f.label :Type %>
-  <%= f.select :category_id, collection_check_boxes(:post, :category_id, Category.all, :id, :name, {}, { :multiple => false}) %>
+  <%= f.select :category_id, collection_check_boxes(:post, :category_id, Category.all, :id, :category_type, {}, { :multiple => false}) %>
 
   <%= f.submit "Create New Service" %>
   <br>
-  <%= link_to "Cancel", root_path %>
+  <%= link_to "Cancel", new_appointment_path %>
   <% end %>
 </div>

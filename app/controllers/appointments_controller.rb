@@ -6,6 +6,7 @@ class AppointmentsController < ApplicationController
   end
 
   def new
+    @technician_id = params[:id]
     @appointment = Appointment.new
   end
 
