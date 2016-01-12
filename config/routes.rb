@@ -36,27 +36,19 @@ Rails.application.routes.draw do
 
   get 'salons/edit'
 
-  get 'technicians/new/:id' => 'technicians#new', as: :new_technician
-  post 'technicians/' => 'technicians#create'
+  get 'users/new_client/:id' => 'users#new_client', as: :new_client
+  post 'users/' => 'users#create_client'
 
-  get 'technicians/index'
-
-  get 'technicians/:id' => 'technicians#show', as: :technician
-
-  get 'technicians/edit'
-
-  get 'technicians/delete'
-
-  get 'tech_sessions/new/:id' => 'tech_sessions#new', as: :new_tech_session
-  post 'tech_sessions/new' => 'tech_sessions#create', as: :create_tech_session
-  get 'tech_sessions/destroy' => 'tech_sessions#destroy', as: :destroy_tech_session
-
-  get 'users/new' => 'users#new', as: :new_user
-  post 'users/' => 'users#create'
+  get 'users/new_technician/:id' => 'users#new_technician', as: :new_technician
+  post 'users/' => 'users#create_technician'
 
   get 'users/index'
 
-  get 'users/:id' => 'users#show', as: :user
+  #fix these routes
+  get 'users/:id' => 'users#show_client', as: :client
+
+  get 'users/:id' => 'users#show_technician', as: :technician
+
 
   get 'users/:id/edit' => 'users#edit', as: :edit_user
   patch 'users/:id' => 'users#update'

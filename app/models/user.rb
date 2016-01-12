@@ -6,5 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :appointments
   has_many :reviews
-  has_many :technicians, through: :appointments
+  belongs_to :salon
+  has_many :reviews
+  has_many :services
+  has_many :categories, through: :services
 end

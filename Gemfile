@@ -4,6 +4,8 @@ gem 'kaminari'
 gem 'faker'
 gem 'bootstrap-sass'
 gem "time_splitter"
+gem 'rails_12factor'
+gem 'geokit-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

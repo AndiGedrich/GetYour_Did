@@ -10,8 +10,22 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
+  def create_client
     @user = User.new(user_params)
+    @user.role = params[:user][:role]
+
+    if @user.save
+      flash[:success] = 'Thank you for Registering!'
+      redirect_to @user
+    else
+      render 'new'
+    end
+  end
+
+  def create_technician
+    @user = User.new
+    @user.role = params[:user][:role]
+    @salon = params[:id]
     if @user.save
       flash[:success] = 'Thank you for Registering!'
       redirect_to @user
@@ -25,6 +39,8 @@ class UsersController < ApplicationController
 
   def delete
   end
+
+
 
   private
     def user_params

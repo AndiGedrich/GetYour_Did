@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229014348) do
+ActiveRecord::Schema.define(version: 20160112075218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 20151229014348) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "role", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "salons", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -58,19 +62,6 @@ ActiveRecord::Schema.define(version: 20151229014348) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "technicians", force: :cascade do |t|
-    t.string   "name"
-    t.text     "body"
-    t.string   "profile_pic_url"
-    t.string   "email"
-    t.string   "password_digest"
-    t.integer  "salon_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "technicians", ["email"], name: "index_technicians_on_email", unique: true, using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -79,6 +70,9 @@ ActiveRecord::Schema.define(version: 20151229014348) do
     t.string   "city"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "role"
+    t.text     "body"
+    t.integer  "salon_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
