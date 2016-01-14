@@ -1,13 +1,11 @@
-<header>
-
-<div class="navigationBar">
+<div class="THISONEnavigationBar">
   <ul>
     <li class="navList"><%= link_to root_path do %></li>
       <%= image_tag "GYD.png", class: "headerLogo", size: "40x40" %>
     <% end %>
     <li class="navList"><%= link_to "Salons", salons_index_path %></li>
     <li class="navList"><%= link_to "Appointments", appointments_index_path %></li>
-    <li class="navList"><%= link_to "Services", categories_show_path %></li>
+    <li class="navList"><%= link_to "Services", categories_index_path %></li>
     <% if user_logged_in? %>
       <li><%= link_to "Users", '#' %></li>
       <li class="dropdown">
@@ -45,4 +43,3 @@
           </div>
         <% end %>
 
-</header>

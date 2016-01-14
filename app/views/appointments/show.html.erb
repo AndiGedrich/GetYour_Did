@@ -1,9 +1,6 @@
 
 <div class="container">
 <h1>Appointments#show</h1>
-   <div id="navigation">
-      <%= render "static_pages/header" %>
-    </div>
     <div class="appointmentInfo">
       <div class="apptDate"><%= @appointment.date %></div>
       <div class="apptTime"><%= @appointment.time %></div>
@@ -11,6 +8,4 @@
       <div class="apptTech"><%#= @appointment.technician.name %></div>
       <div class="salonPrice"><%#= @appointment.technician.salon.price_range %></div>
     </div>
-  <div id="footer">
-    <%= render "static_pages/footer" %>
-  </div>
+

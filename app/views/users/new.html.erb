@@ -19,6 +19,8 @@
   <%= f.label :password_confirmation, "Confirmation" %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+  <% f.hidden_field :role, :value => 1 %>
+
   <%= f.submit "Sign-up" %>
   <% end %>
 

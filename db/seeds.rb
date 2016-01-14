@@ -26,3 +26,4 @@ categories = Category.create([
 
 
 
+

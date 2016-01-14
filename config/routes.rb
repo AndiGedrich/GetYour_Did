@@ -25,21 +25,23 @@ Rails.application.routes.draw do
 
   get 'categories/show'
 
-  get 'categories/new'
+  get 'categories/index'
 
   get 'services/new' => 'services#new', as: :new_service
   post 'services/' => 'services#create'
 
   get 'services/delete'
 
+  get 'salons/index'
+
   get 'salons/show'
 
   get 'salons/edit'
 
-  get 'users/new_client/:id' => 'users#new_client', as: :new_client
+  get 'users/new_client/:user_id' => 'users#new_client', as: :new_client
   post 'users/' => 'users#create_client'
 
-  get 'users/new_technician/:id' => 'users#new_technician', as: :new_technician
+  get 'users/new_technician/:user_id' => 'users#new_technician', as: :new_technician
   post 'users/' => 'users#create_technician'
 
   get 'users/index'

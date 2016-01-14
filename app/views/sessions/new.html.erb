@@ -1,7 +1,8 @@
-<% @technician = Technician.new %>
-<div class="container">
-<h1>Log In</h1>
-<%= form_for(:tech_session, url: create_tech_session_path) do |f| %>
+<div id="container">
+  <div id="wrapper">
+<% @user = User.new %>
+
+<%= form_for(:session, url: create_session_path) do |f| %>
 
   <% flash.each do |key,value| %>
     <div class="<%= key %>" > <%= value %></div>
@@ -14,6 +15,7 @@
   <%= f.password_field :password, class: 'form-control' %>
 
   <%= f.submit "Login" %>
+  <%= link_to "Cancel", :back %>
 <% end %>
-
-<%= link_to "Not registered yet? Sign-up now to start getting clients!", new_technician_path(@salon_id) %>
+</div>
+</div>

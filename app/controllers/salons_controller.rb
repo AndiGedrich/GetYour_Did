@@ -1,7 +1,7 @@
 class SalonsController < ApplicationController
   def index
     @paginate = true
-    @salons = Salon.page(params[:page]).per(15)
+    @salons = Salon.page(params[:page]).per(5)
   end
 
   def show

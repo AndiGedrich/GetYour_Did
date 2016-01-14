@@ -20,7 +20,9 @@
   </div>
 
   <div id="techSignup">
-    <%= link_to "Work Here?", new_tech_session_path(@salon.id) %>
+  <p>Work Here?</p>
+    <%= link_to "Log In", new_session_path %>
+    <%= link_to "Register", new_technician_path(@salon.id) %>
   </div>
 
   <div id="footer">

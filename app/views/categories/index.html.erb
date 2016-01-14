@@ -1,0 +1,31 @@
+<div id="container">
+
+<!-- need to get filters working, then render icons for each with description of each, need to add a show page for services views-->
+<div class="row">
+  <div class="col-sm-6" id="title"><h1 class="text-nowrap">If You're a Fly Girl, Get Your</h1></div>
+
+  <div class="col-sm-4"><%= form_for :static_pages do |f| %>
+  <%= f.collection_select :category_id, Category.all, :id, :category_type %>
+  <% end %>
+  </div>
+  <div class="col-sm-2" id="title">Did!</div>
+    <div id="subNavAppt" class="">
+      <div class="col-sm-1" id="title"><%= form_for :static_pages do |f| %>
+        <%= f.collection_check_boxes :service_ids, Service.all, :id, :name %></div>
+      <% end %>
+    </div>
+
+    <div class="navigationSearch">
+    <!--add a nest -->
+      <div class="col-sm-1" id="title">
+        <%= form_tag("/search", method: "get") do %>
+
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</div>
+

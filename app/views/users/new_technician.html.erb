@@ -1,6 +1,6 @@
 <p>Sign-up today to start booking appointments!</p>
 <div class="container">
-<%= form_for(@technician) do |f| %>
+<%= form_for(@technician, :url => new_technicians_path) do |f| %>
   <%#= render 'shared/error_messages' %>
   <% flash.each do |key, value| %>
     <div class="techsignup"<%= key %>" > <%= value %></div>
@@ -18,10 +18,11 @@
   <%= f.label :password_confirmation, "Confirmation" %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+  <% f.hidden_field :role, :value => 2 %>
   <% f.hidden_field :salon_id, :value => params[:salon_id] %>
 
   <%= f.submit "Sign-up" %>
   <br>
-  <%= link_to "Cancel", root_path %>
+  <%= link_to "Cancel", :back %>
   <% end %>
 </div>

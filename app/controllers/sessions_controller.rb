@@ -6,22 +6,26 @@ class SessionsController < ApplicationController
     user = User.find_by( email: params[:session][:email].downcase)
 
     if user && user.authenticate(params[:session][:password])
-      log_in user
       if (user.role == 1)
-      redirect_to user_path
+      redirect_to root_path
     elsif (user.role == 2)
-      redirect_to technician_path
+      redirect_to root_path
     else
       flash.now[:danger] = 'Invalid email/passowrd combination'
       render 'new'
     end
   end
 
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
+
   def destroy
-    session[:user_id] = nil
+    log_out if logged_in?
     flash[:error] = 'You have logged out'
     redirect_to root_path
   end
+end
 
   private
     def user_params
