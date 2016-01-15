@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  @@descending = false
 
   def new
     @technician_id = params[:id]
@@ -6,12 +7,11 @@ class AppointmentsController < ApplicationController
   end
 
   def index
-    @appointments = appointment.booked == true
     if params[:query] && params[:search]
       @paginate = true
       search_by = params[:search].to_sym
       query = params[:query]
-      appointment_list = Appointment.all
+      appointment_list = Appointment.booked.value[:true]
       @appointments = []
       appointment_list.each do |appointment|
         if appointment[search_by].to_s.downcase.include? params[:query].to_s.downcase
@@ -31,7 +31,20 @@ class AppointmentsController < ApplicationController
 
 
   def show
-    @appointment = Appointment.find(params[:id])
+    if params[:booked] == false
+      @appointment = Appointment.find(params[:id])
+    end
+  end
+
+  def sort
+    if @@descending
+      @appointments = Appointment.order(params[:order_by]+ "DESCEND")
+      @@descending = false
+    else
+      @appointments = Appointment.order(params[:order_by])
+      @@descending = true
+    end
+    render :index
   end
 
   def create
@@ -67,25 +80,30 @@ class AppointmentsController < ApplicationController
     user = current_user
     appointment.users << user
     flash[:success] = "Appointment Booked!"
-    params[:booked]=true
+    #params[:booked]=true
+    #params[:client_id]=current_user(id: session[:user_id]
     redirect_to appointments_path
   end
 
   def cancelAppt
     appointment = Appointment.find(params[:id])
+    @booked = (params[:booked]= true)
     user = current_user
     if appointment.users.where(:id => user.id).any?
       appointment.users.delete(user.id)
       params[:booked] = false
+    end
+  end
 
 
   def delete
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
-    redirect_to technicians_edit_path(params[:id])
+    redirect_to technicians_path(params[:id])
   end
 
-    def appointment_params
+private
+  def appointment_params
     params.require(:appointment).permit(:technician_id, :service_id, :date, :time)
-    end
+  end
 end

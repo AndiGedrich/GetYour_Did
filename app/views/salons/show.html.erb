@@ -1,6 +1,5 @@
- <div id="navigation">
-    <%= render "static_pages/header" %>
-  </div>
+<div id="container">
+
   <div class="salonInfo">
     <div class="salonName"><%= @salon.name %></div>
     <div class="salonInfo"><%= @salon.phone_number %></div>
@@ -20,13 +19,10 @@
   </div>
 
   <div id="techSignup">
-  <p>Work Here?</p>
+  <h2>Work Here?</h2>
     <%= link_to "Log In", new_session_path %>
     <%= link_to "Register", new_technician_path(@salon.id) %>
   </div>
-
-  <div id="footer">
-    <%= render "static_pages/footer" %>
-  </div>
+</div>
 
 <!-- need to be able to link technician info here - reviews, pinterest boards

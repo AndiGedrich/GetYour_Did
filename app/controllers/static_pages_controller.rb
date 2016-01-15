@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+
   end
 
   def about
@@ -10,6 +11,10 @@ class StaticPagesController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def logged_in?
+    !current_user.nil?
   end
 
 end
