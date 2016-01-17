@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: { case_sensitive: false}
 
+  has_one :role
   has_many :appointments
   has_many :reviews
   belongs_to :salon

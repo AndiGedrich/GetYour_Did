@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get 'salons/show'
   get 'salons/edit'
 
-  get 'users/new_client/:user_id' => 'users#new_client', as: :new_client
+  get 'users/new_client' => 'users#new_client', as: :new_client
   post 'users/' => 'users#create_client'
 
   get 'users/new_technician/:salon_id' => 'users#new_technician', as: :new_technician
@@ -43,9 +43,9 @@ Rails.application.routes.draw do
 
   delete 'users/:id' => 'users#destroy'
 
-  get 'sessions/new' => 'sessions#new', as: :new_session
-  post 'sessions/new' => 'sessions#create', as: :create_session
-  get 'sessions/destroy' => 'sessions#destroy', as: :destroy_session
+  # get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
 
   get 'reviews/new'
 
